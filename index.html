@@ -1,0 +1,129 @@
+<html>
+<head>
+  <link rel="stylesheet" href="estilos.css">
+  <script>
+    function mostrarImagem(disciplina) {
+      var imagem = document.getElementById('imagem');
+      switch (disciplina) {
+        case 'experiencia_criativa':
+          imagem.src = 'experiencia_criativa.png';
+          break;
+        case 'racioinio_algoritmico':
+          imagem.src = 'racioinio_algoritmico.png';
+          exibirCodigoJokenpo();
+          break;
+        case 'fundamentos':
+          imagem.src = 'fundamentos.png';
+          break;
+      }
+    }
+    
+    function exibirCodigoJokenpo() {
+      var codigo = document.getElementById('codigo');
+      codigo.style.display = 'block';
+    }
+  </script>
+</head>
+<body>
+  <h1 class="texto_centralizado">Minhas Notas</h1>
+
+  <table width="100%" border="1px" >
+    <tr>
+      <th class="tabela">Disciplinas</th>
+      <th class="tabela">Nota 1</th>
+      <th class="tabela">Nota 2</th>
+      <th class="tabela">Nota 3</th>
+    </tr>
+    <tr>
+      <td class="tabela">
+        <a href="#" onclick="mostrarImagem('experiencia_criativa')">Experiência Criativa: Navegando na Computação</a>
+      </td>
+      <td class="acima_da_media">10</td>
+    </tr>
+    <tr>
+      <td class="tabela">
+        <a href="#" onclick="mostrarImagem('racioinio_algoritmico')">Raciocínio Algoritmico</a>
+      </td>
+      <td class="acima_da_media">1</td>
+      <td class="acima_da_media">10</td>
+      <td class="acima_da_media">9</td>
+    </tr>
+    <tr>
+      <td class="tabela">
+        <a href="#" onclick="mostrarImagem('fundamentos')">Fundamentos de Sistemas Ciberfísicos</a>
+      </td>
+      <td class="acima_da_media">9</td>
+      <td class="acima_da_media">9</td>
+    </tr>
+    <tr>
+        <td class="tabela">
+            Resolução de Problemas com Lógica Matemática
+        </td>
+        <td class="tabela">N/A</td>
+    </tr>
+  </table>
+  <br>
+
+  <div>
+    <img id="imagem" src="experiencia_criativa.png" />
+  </div>
+
+  <div id="codigo" style="display: none;">
+    <pre>
+        <h4>Codigo do projeto jokenpo</h4>
+        import random
+
+        print("jogo de jokenpo")
+        
+        print("insira qual modo quer jogar:")
+        modoDeJogo = int(input("(1) jogador contra jogador, (2) jogador contra computador, (3) computador contra computador. "))
+        while modoDeJogo < 1 or modoDeJogo > 3:
+            print("insira um modo valido!")
+            modoDeJogo = int(input("(1) jogador contra jogador, (2) jogador contra computador, (3) computador contra computador. "))
+        
+        pontuacao1 = 0
+        pontuacao2 = 0
+        contador = 1
+        
+        while contador == 1:
+            if modoDeJogo == 1:
+                print("modo jogador contra jogador")
+                jogador1 = int(input("jogador 1 insira PEDRA(1) , PAPEL(2) ou TESOURA(3) "))
+                jogador2 = int(input("jogador 2 insira PEDRA(1) , PAPEL(2) ou TESOURA(3) "))
+            
+            elif modoDeJogo == 2:
+                print("modo jogador contra computador")
+                jogador1 = int(input("jogador 1 insira PEDRA(1) , PAPEL(2) ou TESOURA(3) "))
+                jogador2 = random.randint(1 , 3)
+        
+            else:
+                print("modo computador contra computador")
+                jogador1 = random.randint(1 , 3)
+                jogador2 = random.randint(1 , 3)
+            
+            while jogador1 < 1 or jogador1 > 3:
+                jogador1 = int(input("jogador 1 insira o numero corretamente PEDRA(1) , PAPEL(2) ou TESOURA(3) "))
+            while jogador2 < 1 or jogador2 > 3:
+                jogador2 = int(input("jogador 2 insira o numero corretamente PEDRA(1) , PAPEL(2) ou TESOURA(3) "))
+            
+            if jogador1 == 1 and jogador2 == 3:
+                print("jogador 1 ganhou!")
+                pontuacao1 += 1
+            elif jogador1 == 2 and jogador2 == 1:
+                print("jogador 1 ganhou!")
+                pontuacao1 += 1
+            elif jogador1 == jogador2:
+                print("deu empate")
+            else:
+                print("jogador 2 ganhou!")
+                pontuacao2 += 1
+                
+            contador += int(input("insira 0 para jogar mais uma rodada, insira outro numero para encerrar o jogo"))
+        
+        print("jogador 1 fez", pontuacao1,"pontos jogador 2 fez",pontuacao2,"pontos")
+        print("Obrigado por jogar! Programa feito por Guilherme Kersting Kissner")
+        </pre>
+    </div>
+    Guilherme Kersting Kissner, Turma 1º U
+</body>
+</html>

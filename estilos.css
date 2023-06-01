@@ -1,0 +1,15 @@
+.texto_centralizado{
+  text-align: center;
+}
+
+.tabela {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid grey;
+}
+.acima_da_media{
+  padding: 8px;
+  text-align: left;
+  border: 1px solid grey;
+  background-color: green;
+}
